@@ -174,7 +174,8 @@ def login():
         user = User.query.filter_by(username=username).first()
         
         #入力パスワードとデータベースのパスワードが一致しているか確認
-        if check_password_hash(user.password, password=password):
+        # userが存在し、かつパスワードが一致する場合のみログイン
+        if user and check_password_hash(user.password, password):
     
             #一致していれば、ログインさせて、管理画面へリダイレクトさせる
             login_user(user)
@@ -185,7 +186,7 @@ def login():
             return redirect('/login', msg='ユーザー名/パスワードが違います')   
 
     elif request.method == 'GET':
-        return render_template('login.html', msg='') 
+        return render_template('login.html') 
 
 @app.route('/logout')
 @login_required
