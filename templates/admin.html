@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}管理ページ{% endblock %}
+{% block content %}
+<div class="container my-5">
+
+        <!-- 新しくadminから新規登録やログアウトボタンを消してもいいかも　-->>
+        <div class="text-center mb-4">
+            <h2>翼のブイログ</h2>
+            <p>アメリカ生活、日常や旅の思い出をお伝えします</p>
+            <!-- 新規登録ボタン　-->
+            <a href="/create" role="buton" class="btn btn-primary">新規登録</a>
+            <a href="/logout" role="buton" class="btn btn-danger">ログアウト</a>
+        </div>
+
+        <div class="row row-cols-3 g-4">
+            {% for post in posts %}
+            <div class="col"> 
+                <div class="card">
+                    <!-- 画像追加　-->
+                    <img src="{{ url_for('static', filename='img/' + post.img_name) }}" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ post.title }}</h5>
+                        <p class="card-text">{{ post.body[:10] }}</p>
+                        <p>{{ post.created_at.strftime('%Y年%m月%d日 %H時%M分') }}</p>
+                        <!-- 更新ボタン　-->
+                        <a href="/{{ post.id }}/update" role="buton"class="btn btn-info">更新</a>
+                        
+                        <!-- 削除ボタン作成　-->
+                        <a href="/{{ post.id }}/delete" role="buton" class="btn btn-danger">削除</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

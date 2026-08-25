@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}ログインページ{% endblock %}
+{% block content %}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-6 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title text-center">ログイン</h3>
+                    {{ msg }}
+                        <form method="POST">
+                            <div class="mb-3">
+                                <label for="username" class="form-label">ユーザー名</label>
+                                <input type="text" name="username" id="username" class="form-control" placeholder="ユーザー名">
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">パスワード</label>
+                                <input type="password" name="password" id="password" class="form-control" placeholder="パスワード">
+                            </div>
+                            <div class="mb-3">
+                                <input type="submit" value="ログイン" class="btn btn-primary w-100">
+                            </div>
+                        </form>
+                </div>
+            </div>
+`       </div>
+    </div>
+</div>
+
+
+{% endblock %}

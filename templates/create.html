@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}新規ページ{% endblock %}
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <h2 class="mb-4">ブログ記事の作成</h2>
+            <form method="POST" enctype="multipart/form-data">
+                <div class="mb-3"> 
+                    <label for="title">タイトル</label>
+                    <input type="text" name="title" id="title" class="form-control" placeholder="タイトル">
+                </div>
+                
+                <div class="mb-3">
+                    <label for="body">記事</label>
+                    <textarea type="text" name="body" id="body" rows="8" class="form-control" placeholder="記事を入力"></textarea>
+                </div> 
+          
+                <div class="mb-3">
+                    <!-- が同を付け足すためのコード　-->
+                    <label for="fileUpload">画像</label>
+                    <input type="file" name="img" id="fileUpload">
+                </div>
+                
+                <button input type="submit" class="btn btn-primary">作成</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+{{ method }}
+{% endblock %}

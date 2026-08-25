@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+
+<article>
+    <!-- 記事画像 -->
+    <img src="{{ url_for('static', filename='img/' + post.img_name) }}">
+
+    <h1>{{ post.title }}</h1>
+    <p>{{ post.created_at.strftime('%Y年%m月%d日 %H時%M分') }}</p>
+    <p>{{ post.body }}</p>
+</article>
+
+<a href="/">一覧に戻る</a>
+
+{% endblock %}

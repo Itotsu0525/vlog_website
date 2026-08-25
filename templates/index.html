@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% for post in posts %}
+    <article>
+        <!-- 画像 -->
+        <img src="{{ url_for('static', filename='img/' + post.img_name) }}">
+
+        <!-- タイトルをクリックすると詳細画面へ -->
+        <h1><a href="/{{ post.id }}/read_more">{{ post.title }}</a></h1>
+        <p>{{ post.created_at.strftime('%Y年%m月%d日 %H時%M分') }}</p>
+        <p>{{ post.body }}</p>
+    </article>
+{% endfor %}
+
+{% endblock %}

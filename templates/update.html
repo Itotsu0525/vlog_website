@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}更新ページ{% endblock %}
+{% block content %}
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <h2 class="mb-4">ブログ記事の更新</h2>
+                <form method="POST" enctype="multipart/form-data">
+                    <div class="mb-3"> 
+                        <label for="title">タイトル</label>
+                        <input type="text" name="title" id="title" class="form-control" placeholder="タイトル" value="{{ post.title }}">
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="body">記事</label>
+                        <textarea type="text" name="body" id="body" rows="8" class="form-control" placeholder="記事を入力">{{ post.body }}</textarea>
+                    </div> 
+                    
+                    <button input type="submit" class="btn btn-primary">更新</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+{{ method }}
+{% endblock %}
